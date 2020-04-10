@@ -12,7 +12,7 @@
 		이름 : <input type="text" name ="m_name"><br>
 		별명 : <input type="text" name ="m_nickname"><br>
 		<input type="submit" value = "sign up">
-		
+	
 	<!-- JSP에서 작성한 이름,별명을 JSP로 전달-->
 	<form action = "encoding_02.jsp" method ="post">
 		이름 : <input type="text" name ="m_name"><br>
