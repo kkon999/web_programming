@@ -29,7 +29,9 @@ public class NewBookDemo01_modify extends HttpServlet {
 		// Oracle 立加 菩胶况靛		
 		String pw  = "tiger";
 		
+		//楷搬 按眉 积己
 		Connection con = null;
+		//傈价 按眉 积己
 		PreparedStatement pstmt = null;
 		
 		try {
