@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		
+		<!-- encoding.jsp 에서 입력받은 데이터를 전달받아서 출력 -->
 		<%!
 		String mName;
 		String mNickame;
