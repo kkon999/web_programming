@@ -1,4 +1,4 @@
-package com.servlet;
+package com.servlet.dto;
 
 public class BookDTO {
 	
@@ -6,7 +6,7 @@ public class BookDTO {
 	String bookName;
 	String bookLoc;
 	
-	public BookDTO(int bookId, String bookName, String bookLoc) {
+	public BookDTO(int bookId,String bookName,String bookLoc) {
 		this.bookId = bookId;
 		this.bookName = bookName;
 		this.bookLoc = bookLoc;
@@ -23,5 +23,6 @@ public class BookDTO {
 	public String getBookLoc() {
 		return bookLoc;
 	}
-
+	
+	
 }

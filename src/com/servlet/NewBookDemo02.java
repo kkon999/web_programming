@@ -34,7 +34,7 @@ public class NewBookDemo02 extends HttpServlet {
 		Connection con = null;
 		// query 통신 객체 
 		Statement stmt = null;
-		// 
+		// sql 명령에 대한 데이터를 반환해주는 객체
 		ResultSet res  = null;
 		
 		try {
@@ -48,7 +48,7 @@ public class NewBookDemo02 extends HttpServlet {
 			// executeQuery는 데이터 조회시 사용
 			res = stmt.executeQuery(sql);
 			
-			// while문을 사용하요 Database 테이블에서 지정된 데이터를 호출하여 출력
+			// while문을 사용하여 Database 테이블에서 지정된 데이터를 호출하여 출력
 			while (res.next()) {
 				int bookId = res.getInt("BOOK_ID");
 				String bookName = res.getString("BOOK_NAME");

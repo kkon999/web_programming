@@ -1,13 +1,15 @@
-package com.servlet;
+package com.servlet.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import com.servlet.dto.BookDTO;
+import com.sun.org.apache.bcel.internal.generic.Select;
 
 public class BookDAO {
-
+	
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "scott";
@@ -21,8 +23,8 @@ public class BookDAO {
 		}
 	}
 	
-	public ArrayList<BookDTO> select() {
-		
+	public ArrayList<BookDTO>select() {
+				
 		ArrayList<BookDTO> list = new ArrayList<BookDTO>();
 		
 		Connection con = null;
@@ -30,31 +32,34 @@ public class BookDAO {
 		ResultSet res = null;
 		
 		try {
-			con = DriverManager.getConnection(url, id, pw);
-			String sql = "SELECT * FROM book";
+			con =DriverManager.getConnection(url, id, pw);
+			String sql = "SELECT * FROM BOOK";
 			pstmt = con.prepareStatement(sql);
 			res = pstmt.executeQuery();
+			
 			while (res.next()) {
-				int bookId = res.getInt("book_id");
-				String bookName = res.getString("book_name");
-				String bookLoc = res.getString("book_loc");
+				int bookId = res.getInt("BOOK_ID");
+				String bookName = res.getString("BOOK_NAME");
+				String bookLoc = res.getString("BOOK_LOC");
 				
-				BookDTO bookDTO = new BookDTO(bookId, bookName, bookLoc);
+				BookDTO bookDTO = new BookDTO(bookId,bookName,bookLoc);
 				list.add(bookDTO);
 			}
-		} catch (Exception e) {
+			
+		}catch (Exception e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			try {
 				if(res != null) res.close();
 				if(pstmt != null) pstmt.close();
 				if(con != null) con.close();
+				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		}
 		
 		return list;
+		
 	}
-	
 }

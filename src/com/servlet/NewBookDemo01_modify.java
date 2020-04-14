@@ -19,7 +19,7 @@ public class NewBookDemo01_modify extends HttpServlet {
 		
 		response.setContentType("text/html; charset =UTF-8");
 		PrintWriter out = response.getWriter();
-		
+	
 		// Oracle Driver 위치  
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		// Oracle 위치
