@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.servlet.dao.BookDAO;
+import com.servlet.dto.BookDTO;
 
 @WebServlet("/bs")
 public class BookServlet extends HttpServlet {
@@ -66,7 +67,18 @@ public class BookServlet extends HttpServlet {
 		*/
 		
 		BookDAO bookDAO= new BookDAO();
-		ArrayList<BookDTO> list = b
+		ArrayList<BookDTO> list = bookDAO.select();
+		
+		for(int i = 0 ; i< list.size();i++) {
+			BookDTO dto = list.get(i);
+			int bookId = dto.getBookId();
+			String bookName = dto.getBookName();
+			String bookLoc = dto.getBookLoc();
+			
+			out.println("bookId : " + bookId + ", ");
+			out.println("bookName : " + bookName + ", ");
+			out.println("bookLoc : " + bookLoc + "</br>");
+		}
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

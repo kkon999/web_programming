@@ -39,9 +39,9 @@ public class NewBookDemo01 extends HttpServlet {
 		try {
 			// 드라이버 로딩
 			Class.forName(driver);
-			// 연결 객체 생성 (url,id,pw) 값이 일치해야함
+			// 연결 객체 (url,id,pw) 값이 일치해야함
 			con = DriverManager.getConnection(url,id,pw);
-			// 전송 객체 생성
+			// 전송 객체
 			stmt = con.createStatement();		
 			// query문 작성
 			String sql = "INSERT INTO BOOK(BOOK_ID, BOOK_NAME, BOOK_LOC)";
